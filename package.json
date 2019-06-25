@@ -1,0 +1,19 @@
+{
+  "name": "vl-ui-data-table",
+  "version": "0.0.0",
+  "description": "Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen. ",
+  "main": "vl-data-table.js",
+  "scripts": {
+    "test": "wct -l chrome,firefox --npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-data-table.git"
+  },
+  "author": "DIDM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-data-table/issues"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-data-table#readme"
+}
