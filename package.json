@@ -1,7 +1,7 @@
 {
   "name": "vl-ui-data-table",
   "version": "0.0.0",
-  "description": "Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen. ",
+  "description": "Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen.",
   "main": "vl-data-table.js",
   "scripts": {
     "prepare": "npm run prepare:util",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@govflanders/vl-ui-core": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
+    "@govflanders/vl-ui-data-table": "3.7.2",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2",
     "replace": "1.0.0",
