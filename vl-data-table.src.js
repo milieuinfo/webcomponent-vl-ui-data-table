@@ -1,0 +1,37 @@
+import { NativeVlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
+
+/**
+ * VlDataTable
+ * @class
+ * @classdesc Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen. <a href="demo/vl-data-table.html">Demo</a>.
+ *
+ * @extends NativeVlElement
+ *
+ * @property {boolean} hover - Attribuut wordt gebruikt om een rij te highlighten waneer de gebruiker erover hovert met muiscursor.
+ * @property {boolean} matrix - Attribuut wordt gebruikt om data in 2 dimensies te tonen. Zowel de rijen als de kolommen krijgen een titel. Deze titels worden gescheiden door een dikke lijn.
+ * @property {boolean} lined - Variant met een lijn tussen elke rij en kolom.
+ * @property {boolean} zebra - Variant waarin de rijen afwisslend een andere achtergrondkleur krijgen. Dit maakt de tabel makkelijker leesbaar.
+ */
+export class VlDataTable extends NativeVlElement(HTMLTableElement) {
+  static get _observedAttributes() {
+    return [];
+  }
+
+  static get _observedClassAttributes() {
+    return ['hover', 'matrix', 'lined', 'zebra'];
+  }
+
+  connectedCallback() {
+    this.classList.add('vl-data-table');
+  }
+
+  get _classPrefix() {
+    return 'vl-data-table--';
+  }
+
+  get _stylePath() {
+    return '../style.css';
+  }
+}
+
+define('vl-data-table', VlDataTable, {extends: 'table'});

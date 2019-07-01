@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title>vl-data-table voorbeeld</title>
+</head>
+
+<script type="module" src="../vl-data-table.src.js"></script>
+<script type="module" src="demo.js"></script>
+
+<body>
+<h1>vl-ui-data-table demo</h1>
+<p>
+  <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-data-table">
+    Meer voorbeelden en documentatie</a>.
+</p>
+
+<div>
+  <h2>Data table hover</h2>
+  <pre>
+    <code class="line-numbers language-markup">
+      &lt;table is="vl-data-table" hover>
+        <caption>Data table hover</caption>
+        <thead>
+        <tr>
+          <th>Entry Header 1</th>    <th>Entry Header 2</th>    <th>Entry Header 3</th>    <th>Entry Header 4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Entry line 1</td>    <td>Entry line 2</td>    <td>Entry line 3</td>    <td>Entry line 4</td>
+        </tr>
+        <tr>
+          <td>Entry line 1</td>
+          <td colspan="2" scope="colgroup">Entry line 2</td>
+          <td>Entry line 3</td>
+        </tr>
+        <tr>
+          <td>Entry line 1</td>    <td>Entry line 2</td>    <td>Entry line 3</td>    <td>Entry line 4</td>  </tr>
+        </tbody>
+      &lt;/table&gt;
+    </code>
+  </pre>
+  <div class="demo">
+    <table is="vl-data-table" hover>
+    <caption>Data table hover</caption>
+    <thead>
+    <tr>
+      <th>Entry Header 1</th>    <th>Entry Header 2</th>    <th>Entry Header 3</th>    <th>Entry Header 4</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Entry line 1</td>    <td>Entry line 2</td>    <td>Entry line 3</td>    <td>Entry line 4</td>
+    </tr>
+    <tr>
+      <td>Entry line 1</td>
+      <td colspan="2" scope="colgroup">Entry line 2</td>
+      <td>Entry line 3</td>
+    </tr>
+    <tr>
+      <td>Entry line 1</td>    <td>Entry line 2</td>    <td>Entry line 3</td>    <td>Entry line 4</td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<div>
+  <h2>Data table matrix</h2>
+</div>
+
+<div>
+  <h2>Data table lined</h2>
+</div>
+
+<div>
+  <h2>Data table zebra</h2>
+</div>
+
+</body>
+</html>
