@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-data-table",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen.",
   "main": "vl-data-table.js",
   "scripts": {
