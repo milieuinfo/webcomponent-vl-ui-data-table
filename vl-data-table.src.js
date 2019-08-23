@@ -12,7 +12,8 @@ import { NativeVlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
  * @property {boolean} lined - Variant met een lijn tussen elke rij en kolom.
  * @property {boolean} zebra - Variant waarin de rijen afwisslend een andere achtergrondkleur krijgen. Dit maakt de tabel makkelijker leesbaar.
  * 
- * @version <a href="http://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/releases/latest">Release notes</a>
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/releases/latest|Release notes}
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/issues|Issues}
  */
 export class VlDataTable extends NativeVlElement(HTMLTableElement) {
   static get _observedAttributes() {
