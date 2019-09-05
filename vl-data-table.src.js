@@ -3,7 +3,7 @@ import { NativeVlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
 /**
  * VlDataTable
  * @class
- * @classdesc Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen. <a href="demo/vl-data-table.html">Demo</a>.
+ * @classdesc Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen.
  *
  * @extends NativeVlElement
  *
@@ -14,6 +14,7 @@ import { NativeVlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
  * 
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/issues|Issues}
+ * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-ui-data-table.html|Demo}
  */
 export class VlDataTable extends NativeVlElement(HTMLTableElement) {
   static get _observedAttributes() {
