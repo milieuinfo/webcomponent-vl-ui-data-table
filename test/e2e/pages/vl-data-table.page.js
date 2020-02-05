@@ -1,6 +1,5 @@
 const VlDataTable = require('../components/vl-data-table');
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page, Config } = require('vl-ui-core').Test;
 
 class VlDataTablePage extends Page {
     async _getDataTable(selector) {
