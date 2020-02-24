@@ -13,9 +13,10 @@ class VlDataTable extends VlElement {
         return new vlDataTableHeader(this.driver, header);
     }
 
-    // async getDataTableBody() {
-
-    // }
+    async getDataTableBody() {
+        const body = await this.findElement(By.css('tbody'));
+        return new vlDataTableBody(this.driver, body);
+    }
 }
 
 class vlDataTableHeader extends VlElement {
@@ -36,11 +37,40 @@ class vlDataTableHeader extends VlElement {
             return undefined;
         }
     }
-
 }
 
 class vlDataTableBody extends VlElement {
 
+
+    async getRows() {
+        const rows = await this.findElements(By.css('tr'));
+        
+        return Promise.all(
+            rows.map(async row => {
+                return await new vlDataTableRow(this.driver, row);
+            })
+        );
+    }
+}
+
+class vlDataTableRow extends VlElement {
+
+    async _getColumns() {
+        return this.findElements(By.css('td'));
+    }
+
+    async getNumberOfColumns() {
+        return (await this._getColumns()).length;
+    }
+
+    async getColumn(index) {
+        const columns = await this._getColumns();
+        if (index < columns.length) {
+            return columns[index].getText();
+        } else {
+            return undefined;
+        }
+    }
 }
 
 

@@ -25,7 +25,29 @@ describe('vl-data-table', async () => {
     });
 
 
-    // it ()
+    it ('De gebruiker kan de columns van een table zien', async() => {
+        const datatable = await vlDataTablePage.getDataTableWithHoverLines();
+        const body = await datatable.getDataTableBody();
+
+        const rows = await body.getRows();
+
+        await assert.eventually.equal(rows[0].getNumberOfColumns(), 4);
+        await assert.eventually.equal(rows[0].getColumn(0), "Entry line 1");
+        await assert.eventually.equal(rows[0].getColumn(1), "Entry line 2");
+        await assert.eventually.equal(rows[0].getColumn(2), "Entry line 3");
+        await assert.eventually.equal(rows[0].getColumn(3), "Entry line 4");
+
+        await assert.eventually.equal(rows[1].getNumberOfColumns(), 3);
+        await assert.eventually.equal(rows[1].getColumn(0), "Entry line 1");
+        await assert.eventually.equal(rows[1].getColumn(1), "Entry line 2");
+        await assert.eventually.equal(rows[1].getColumn(2), "Entry line 3");
+
+        await assert.eventually.equal(rows[2].getNumberOfColumns(), 4);
+        await assert.eventually.equal(rows[2].getColumn(0), "Entry line 1");
+        await assert.eventually.equal(rows[2].getColumn(1), "Entry line 2");
+        await assert.eventually.equal(rows[2].getColumn(2), "Entry line 3");
+        await assert.eventually.equal(rows[2].getColumn(3), "Entry line 4");
+    });
 
     
 
