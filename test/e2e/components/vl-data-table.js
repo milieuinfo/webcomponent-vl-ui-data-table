@@ -8,10 +8,10 @@ class VlDataTable extends VlElement {
         return caption.getText();
     }
 
-    // async getDataTableHeader() {
-    //     const header = this.findElements(By.css('thead'));
-    //     return new vlDataTableHeader(this.driver, header);
-    // }
+    async getDataTableHeader() {
+        const header = await this.findElement(By.css('thead'));
+        return new vlDataTableHeader(this.driver, header);
+    }
 
     // async getDataTableBody() {
 
@@ -19,6 +19,23 @@ class VlDataTable extends VlElement {
 }
 
 class vlDataTableHeader extends VlElement {
+
+    async _getHeaderColumns() {
+        return this.findElements(By.css('th'));
+    }
+
+    async getNumberOfHeaderColumns() {
+        return (await this._getHeaderColumns()).length;
+    }
+
+    async getHeaderOfColumn(index) {
+        const headers = await this._getHeaderColumns();
+        if (index < headers.length) {
+            return headers[index].getText();
+        } else {
+            return undefined;
+        }
+    }
 
 }
 
