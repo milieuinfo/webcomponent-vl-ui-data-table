@@ -9,15 +9,12 @@ class VlDataTable extends VlElement {
     }
 
     async getDataTableHeader() {
-        const header = await this.findElement(By.css('thead'));
-        return new vlDataTableHeader(this.driver, header);
+        return new VlDataTableHeader(this.driver, await this.findElement(By.css('thead')));
     }
 
     async getDataTableBody() {
-        const body = await this.findElement(By.css('tbody'));
-        return new vlDataTableBody(this.driver, body);
+        return new VlDataTableBody(this.driver, await this.findElement(By.css('tbody')));
     }
-
 
     async isHover() {
         return this.hasAttribute('hover');
@@ -36,42 +33,27 @@ class VlDataTable extends VlElement {
     }
 }
 
-class vlDataTableHeader extends VlElement {
-
-    async _getHeaderColumns() {
-        return this.findElements(By.css('th'));
-    }
-
-    async getNumberOfHeaderColumns() {
-        return (await this._getHeaderColumns()).length;
-    }
-
-    async getHeaderOfColumn(index) {
-        const headers = await this._getHeaderColumns();
-        if (index < headers.length) {
-            return headers[index].getText();
-        } else {
-            return undefined;
-        }
+class VlDataTableHeader extends VlElement {
+    async getRow() {
+        return new VlDataTableRow(this.driver, await this.findElement(By.css('tr')));
     }
 }
 
-class vlDataTableBody extends VlElement {
+class VlDataTableBody extends VlElement {
     async getRows() {
         const rows = await this.findElements(By.css('tr'));
         
         return Promise.all(
             rows.map(async row => {
-                return await new vlDataTableRow(this.driver, row);
+                return await new VlDataTableRow(this.driver, row);
             })
         );
     }
 }
 
-class vlDataTableRow extends VlElement {
-
+class VlDataTableRow extends VlElement {
     async _getColumns() {
-        return this.findElements(By.css('td'));
+        return this.findElements(By.css('tr>*'));
     }
 
     async getNumberOfColumns() {
@@ -87,6 +69,5 @@ class vlDataTableRow extends VlElement {
         }
     }
 }
-
 
 module.exports = VlDataTable;
