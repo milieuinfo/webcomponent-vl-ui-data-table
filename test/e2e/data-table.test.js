@@ -8,6 +8,15 @@ describe('vl-data-table', async () => {
         return vlDataTablePage.load();
     });
 
-    after(() => driver && driver.quit());
+    it ('De gebruiker kan de caption van een datatable opgeven', async() => {
+        const datatable = await vlDataTablePage.getDataTableWithHoverLines();
+        await assert.eventually.equal(datatable.getCaption(), "Data table Hover");
+    });
+
+    
+
+    after(async () => {
+        return driver.quit();
+    });
 });
 

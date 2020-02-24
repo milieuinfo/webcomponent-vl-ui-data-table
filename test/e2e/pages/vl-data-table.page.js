@@ -6,6 +6,10 @@ class VlDataTablePage extends Page {
         return new VlDataTable(this.driver, selector);
     }
 
+    async getDataTableWithHoverLines() {
+        return this._getDataTable('#data-table-hover');
+    }
+
     async load() {
         await super.load(Config.baseUrl + '/demo/vl-data-table.html');
     }
