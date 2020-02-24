@@ -17,6 +17,23 @@ class VlDataTable extends VlElement {
         const body = await this.findElement(By.css('tbody'));
         return new vlDataTableBody(this.driver, body);
     }
+
+
+    async isHover() {
+        return this.hasAttribute('hover');
+    }
+
+    async isMatrix() {
+        return this.hasAttribute('matrix');
+    }
+
+    async isLined() {
+        return this.hasAttribute('lined');
+    }
+
+    async isZebra() {
+        return this.hasAttribute('zebra');
+    }
 }
 
 class vlDataTableHeader extends VlElement {
@@ -40,8 +57,6 @@ class vlDataTableHeader extends VlElement {
 }
 
 class vlDataTableBody extends VlElement {
-
-
     async getRows() {
         const rows = await this.findElements(By.css('tr'));
         

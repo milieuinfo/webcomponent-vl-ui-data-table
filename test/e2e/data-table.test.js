@@ -8,12 +8,12 @@ describe('vl-data-table', async () => {
         return vlDataTablePage.load();
     });
 
-    it ('De gebruiker kan de caption van een datatable zien', async() => {
+    it('De gebruiker kan de caption van een datatable zien', async() => {
         const datatable = await vlDataTablePage.getDataTableWithHoverLines();
         await assert.eventually.equal(datatable.getCaption(), "Data table Hover");
     });
 
-    it ('De gebruiker kan de headers van de table zien', async() => {
+    it('De gebruiker kan de headers van de table zien', async() => {
         const datatable = await vlDataTablePage.getDataTableWithHoverLines();
         const header = await datatable.getDataTableHeader();
 
@@ -25,7 +25,7 @@ describe('vl-data-table', async () => {
     });
 
 
-    it ('De gebruiker kan de columns van een table zien', async() => {
+    it('De gebruiker kan de columns van een table zien', async() => {
         const datatable = await vlDataTablePage.getDataTableWithHoverLines();
         const body = await datatable.getDataTableBody();
 
@@ -48,6 +48,55 @@ describe('vl-data-table', async () => {
         await assert.eventually.equal(rows[2].getColumn(2), "Entry line 3");
         await assert.eventually.equal(rows[2].getColumn(3), "Entry line 4");
     });
+
+    it('Als gebruiker kan ik over rijen hooveren', async() => {
+        const datatable = await vlDataTablePage.getDataTableWithHoverLines();
+        await assert.eventually.isTrue(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isLined());
+        await assert.eventually.isFalse(datatable.isZebra());
+    });
+
+    it('Als gebruiker kan ik een tabel als matrix variant definieren', async() => {
+        const datatable = await vlDataTablePage.getDataTableMatrix();
+        await assert.eventually.isTrue(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isLined());
+        await assert.eventually.isFalse(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isZebra());
+    });
+
+    it('Als gebruiker kan ik een tabel als matrix variant definieren', async() => {
+        const datatable = await vlDataTablePage.getDataTableMatrixJoinedRowTitles();
+        await assert.eventually.isTrue(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isLined());
+        await assert.eventually.isFalse(datatable.isZebra());
+    });
+
+    it ('Als gebruiker kan ik lijnen zien tussen kolommen en rijen', async() => {
+        const datatable = await vlDataTablePage.getDataTableLined();
+        await assert.eventually.isTrue(datatable.isLined());
+        await assert.eventually.isFalse(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isZebra());
+    });
+
+    it ('Als gebruiker kan ik lijnen zien tussen kolommen en rijen', async() => {
+        const datatable = await vlDataTablePage.getDataTableLinedJoinRowTitles();
+        await assert.eventually.isTrue(datatable.isLined());
+        await assert.eventually.isFalse(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isZebra());
+    });
+
+
+    it('Als gebruiker zie ik de lijnen in een afwisselende kleur', async() => {
+        const datatable = await vlDataTablePage.getDataTableZebra();
+        await assert.eventually.isTrue(datatable.isZebra());
+        await assert.eventually.isFalse(datatable.isMatrix());
+        await assert.eventually.isFalse(datatable.isHover());
+        await assert.eventually.isFalse(datatable.isLined());
+    })
 
     
 

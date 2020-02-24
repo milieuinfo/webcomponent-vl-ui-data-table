@@ -10,6 +10,26 @@ class VlDataTablePage extends Page {
         return this._getDataTable('#data-table-hover');
     }
 
+    async getDataTableMatrix() {
+        return this._getDataTable('#data-table-matrix-1');
+    }
+
+    async getDataTableMatrixJoinedRowTitles() {
+        return this._getDataTable('#data-table-matrix-2');
+    }
+
+    async getDataTableLined() {
+        return this._getDataTable('#data-table-lined-1');
+    }
+
+    async getDataTableLinedJoinRowTitles() {
+        return this._getDataTable('#data-table-lined-2');
+    }
+
+    async getDataTableZebra() {
+        return this._getDataTable('#data-table-zebra');
+    }
+
     async load() {
         await super.load(Config.baseUrl + '/demo/vl-data-table.html');
     }
