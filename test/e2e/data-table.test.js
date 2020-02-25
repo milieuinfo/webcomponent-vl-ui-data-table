@@ -8,6 +8,8 @@ describe('vl-data-table', async () => {
         return vlDataTablePage.load();
     });
 
-    after(() => driver && driver.quit());
+    it('Dummy test om de browsers te laten sluiten', () => {
+    	assert.isTrue(true);
+    });
 });
 
