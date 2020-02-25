@@ -1,3 +1,3 @@
 module.exports = { 
-    VlDataTable: require('../vl-data-table.src.js').VlDataTable
+    VlDataTable: require('../dist/vl-data-table.src.js').VlDataTable
 }
