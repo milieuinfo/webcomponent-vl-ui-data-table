@@ -98,8 +98,5 @@ describe('vl-data-table', async () => {
         await assert.eventually.isTrue(cellsRow1[1].isTd());
     });
 
-    after(async () => {
-        return driver.quit();
-    });
 });
 
