@@ -52,22 +52,47 @@ class VlDataTableBody extends VlElement {
 }
 
 class VlDataTableRow extends VlElement {
-    async _getColumns() {
+    async _getCells() {
         return this.findElements(By.css('tr>*'));
     }
 
-    async getNumberOfColumns() {
-        return (await this._getColumns()).length;
+    async getNumberOfCells() {
+        return (await this._getCells()).length;
     }
 
-    async getColumn(index) {
-        const columns = await this._getColumns();
-        if (index < columns.length) {
-            return columns[index].getText();
-        } else {
-            return undefined;
-        }
+    async getCells() {
+        const cells = await this._getCells();
+        
+        return Promise.all(
+            cells.map(async cell => {
+                return await new VlDataTableCell(this.driver, cell);
+            })
+        );
     }
+}
+
+class VlDataTableCell extends VlElement {
+	rowSpan() {
+		return this.getAttribute("rowspan");
+	}
+
+	colSpan() {
+		return this.getAttribute("colspan");
+	}
+
+	scope() {
+		return this.getAttribute("scope");
+	}
+
+	async isTd() {
+		const tag = await this.getTagName();
+		return tag == 'td';
+	}
+
+	async isTh() {
+		const tag = await this.getTagName();
+		return tag == 'th';
+	}
 }
 
 module.exports = VlDataTable;
