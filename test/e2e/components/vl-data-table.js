@@ -1,5 +1,5 @@
 const { VlElement } = require('vl-ui-core').Test;
-const { By } = require('selenium-webdriver');
+const { By } = require('vl-ui-core').Test.Setup;
 
 class VlDataTable extends VlElement {  
 
@@ -42,12 +42,7 @@ class VlDataTableHeader extends VlElement {
 class VlDataTableBody extends VlElement {
     async getRows() {
         const rows = await this.findElements(By.css('tr'));
-        
-        return Promise.all(
-            rows.map(async row => {
-                return await new VlDataTableRow(this.driver, row);
-            })
-        );
+        return Promise.all(rows.map(row => new VlDataTableRow(this.driver, row)));
     }
 }
 
@@ -62,12 +57,7 @@ class VlDataTableRow extends VlElement {
 
     async getCells() {
         const cells = await this._getCells();
-        
-        return Promise.all(
-            cells.map(async cell => {
-                return await new VlDataTableCell(this.driver, cell);
-            })
-        );
+        return Promise.all(cells.map(cell => new VlDataTableCell(this.driver, cell)));
     }
 }
 
