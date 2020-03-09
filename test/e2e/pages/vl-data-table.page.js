@@ -11,19 +11,19 @@ class VlDataTablePage extends Page {
     }
 
     async getDataTableMatrix() {
-        return this._getDataTable('#data-table-matrix-1');
+        return this._getDataTable('#data-table-matrix-column-titles');
     }
 
     async getDataTableMatrixJoinedRowTitles() {
-        return this._getDataTable('#data-table-matrix-2');
+        return this._getDataTable('#data-table-matrix-row-titles');
     }
 
     async getDataTableLined() {
-        return this._getDataTable('#data-table-lined-1');
+        return this._getDataTable('#data-table-lined');
     }
 
     async getDataTableLinedJoinRowTitles() {
-        return this._getDataTable('#data-table-lined-2');
+        return this._getDataTable('#data-table-lined-row-titles');
     }
 
     async getDataTableZebra() {
