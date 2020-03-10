@@ -96,6 +96,5 @@ describe('vl-data-table', async () => {
 		await assert.eventually.isFalse(cellsRow1[1].isTh());
 		await assert.eventually.isTrue(cellsRow1[1].isTd());
 	});
-
 });
 
