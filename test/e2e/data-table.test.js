@@ -16,10 +16,10 @@ describe('vl-data-table', async () => {
 	it('Als gebruiker kan ik de headers van een datatable zien', async() => {
 		const datatable = await vlDataTablePage.getDataTableWithHoverLines();
 		const header = await datatable.getDataTableHeader();
-		const headerRow = await header.getRow();
+		const headerRows = await header.getRows();
 
-		await assert.eventually.equal(headerRow.getNumberOfCells(), 4);
-		const headerCells = await headerRow.getCells();
+		await assert.eventually.lengthOf(headerRows[0].getCells(), 4);
+		const headerCells = await headerRows[0].getCells();
 		await assert.eventually.equal(headerCells[0].getText(), "Entry Header 1");
 		await assert.eventually.equal(headerCells[1].getText(), "Entry Header 2");
 		await assert.eventually.equal(headerCells[2].getText(), "Entry Header 3");
@@ -32,20 +32,20 @@ describe('vl-data-table', async () => {
 
 		const rows = await body.getRows();
 
-		await assert.eventually.equal(rows[0].getNumberOfCells(), 4);
+		await assert.eventually.lengthOf(rows[0].getCells(), 4);
 		const cellsRow0 = await rows[0].getCells();
 		await assert.eventually.equal(cellsRow0[0].getText(), "Entry line 1");
 		await assert.eventually.equal(cellsRow0[1].getText(), "Entry line 2");
 		await assert.eventually.equal(cellsRow0[2].getText(), "Entry line 3");
 		await assert.eventually.equal(cellsRow0[3].getText(), "Entry line 4");
 
-		await assert.eventually.equal(rows[1].getNumberOfCells(), 3);
+		await assert.eventually.lengthOf(rows[1].getCells(), 3);
 		const cellsRow1 = await rows[1].getCells();
 		await assert.eventually.equal(cellsRow1[0].getText(), "Entry line 1");
 		await assert.eventually.equal(cellsRow1[1].getText(), "Entry line 2");
 		await assert.eventually.equal(cellsRow1[2].getText(), "Entry line 3");
 
-		await assert.eventually.equal(rows[2].getNumberOfCells(), 4);
+		await assert.eventually.lengthOf(rows[2].getCells(), 4);
 		const cellsRow2 = await rows[2].getCells();
 		await assert.eventually.equal(cellsRow2[0].getText(), "Entry line 1");
 		await assert.eventually.equal(cellsRow2[1].getText(), "Entry line 2");
@@ -86,13 +86,13 @@ describe('vl-data-table', async () => {
 		const body = await datatable.getDataTableBody();
 		const rows = await body.getRows();
 		const cellsRow0 = await rows[0].getCells();
-		await assert.eventually.equal(cellsRow0[0].rowSpan(), 3);
-		await assert.eventually.equal(cellsRow0[0].scope(), "rowgroup");
+		await assert.eventually.equal(cellsRow0[0].getRowSpan(), 3);
+		await assert.eventually.equal(cellsRow0[0].getScope(), "rowgroup");
 		await assert.eventually.isTrue(cellsRow0[0].isTh());
 		await assert.eventually.isFalse(cellsRow0[0].isTd());
 		const cellsRow1 = await rows[1].getCells();
-		await assert.eventually.equal(cellsRow1[1].colSpan(), 2);
-		await assert.eventually.equal(cellsRow1[1].scope(), "colgroup");
+		await assert.eventually.equal(cellsRow1[1].getColSpan(), 2);
+		await assert.eventually.equal(cellsRow1[1].getScope(), "colgroup");
 		await assert.eventually.isFalse(cellsRow1[1].isTh());
 		await assert.eventually.isTrue(cellsRow1[1].isTd());
 	});

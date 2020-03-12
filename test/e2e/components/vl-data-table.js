@@ -34,8 +34,9 @@ class VlDataTable extends VlElement {
 }
 
 class VlDataTableHeader extends VlElement {
-    async getRow() {
-        return new VlDataTableRow(this.driver, await this.findElement(By.css('tr')));
+    async getRows() {
+        const rows = await this.findElements(By.css('tr'));
+        return Promise.all(rows.map(row => new VlDataTableRow(this.driver, row)));
     }
 }
 
@@ -51,10 +52,6 @@ class VlDataTableRow extends VlElement {
         return this.findElements(By.css('tr>*'));
     }
 
-    async getNumberOfCells() {
-        return (await this._getCells()).length;
-    }
-
     async getCells() {
         const cells = await this._getCells();
         return Promise.all(cells.map(cell => new VlDataTableCell(this.driver, cell)));
@@ -62,15 +59,15 @@ class VlDataTableRow extends VlElement {
 }
 
 class VlDataTableCell extends VlElement {
-	rowSpan() {
+	getRowSpan() {
 		return this.getAttribute("rowspan");
 	}
 
-	colSpan() {
+	getColSpan() {
 		return this.getAttribute("colspan");
 	}
 
-	scope() {
+	getScope() {
 		return this.getAttribute("scope");
 	}
 
