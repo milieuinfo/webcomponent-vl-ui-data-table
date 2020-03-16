@@ -27,6 +27,11 @@ export class VlDataTable extends NativeVlElement(HTMLTableElement) {
 
   connectedCallback() {
     this.classList.add('vl-data-table');
+    ["m", "s", "xs"].forEach(size => {
+    	if (this.hasAttribute(`collapsed-${size}`)) {
+    		this.classList.add(`vl-data-table--collapsed-${size}`);
+    	}
+    });
   }
 
   get _classPrefix() {

@@ -15,6 +15,21 @@
     <table id="data-table" is="vl-data-table"></table>
   </template>
 </test-fixture>
+<test-fixture id="vl-data-table-fixture-collapsed-xs">
+  <template>
+    <table id="data-table" is="vl-data-table" collapsed-xs></table>
+  </template>
+</test-fixture>
+<test-fixture id="vl-data-table-fixture-collapsed-s">
+  <template>
+    <table id="data-table" is="vl-data-table" collapsed-s></table>
+  </template>
+</test-fixture>
+<test-fixture id="vl-data-table-fixture-collapsed-m">
+  <template>
+    <table id="data-table" is="vl-data-table" collapsed-m></table>
+  </template>
+</test-fixture>
 
 <script>
   suite('<vl-data-table>', () => {
@@ -35,6 +50,23 @@
         assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
       });
     });
+
+  
+    test('zet een attribuut collapsed-xs op de data-table als het attribuut collapsed-xs gezet is', () => {
+        const dataTable = fixture('vl-data-table-fixture-collapsed-xs');
+        assert.isTrue(dataTable.classList.contains('vl-data-table--collapsed-xs'));
+      });
+
+    test('zet een attribuut collapsed-s op de data-table als het attribuut collapsed-s gezet is', () => {
+        const dataTable = fixture('vl-data-table-fixture-collapsed-s');
+        assert.isTrue(dataTable.classList.contains('vl-data-table--collapsed-s'));
+      });
+
+    test('zet een attribuut collapsed-m op de data-table als het attribuut collapsed-m gezet is', () => {
+        const dataTable = fixture('vl-data-table-fixture-collapsed-m');
+        assert.isTrue(dataTable.classList.contains('vl-data-table--collapsed-m'));
+      });
+
   });
 </script>
 </body>
