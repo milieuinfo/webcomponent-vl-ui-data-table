@@ -96,5 +96,28 @@ describe('vl-data-table', async () => {
 		await assert.eventually.isFalse(cellsRow1[1].isTh());
 		await assert.eventually.isTrue(cellsRow1[1].isTd());
 	});
+
+	it('Als gebruiker zie ik het onderscheid tussen een collapsed-medium data-table en een zonder', async() => {
+		const datatableWithCollapsedMedium = await vlDataTablePage.getDataTableCollapsedMedium();
+		await assert.eventually.isTrue(datatableWithCollapsedMedium.isCollapsedMedium());
+		const datatableWithoutCollapsedMedium = await vlDataTablePage.getDataTableWithHoverLines();
+		await assert.eventually.isFalse(datatableWithoutCollapsedMedium.isCollapsedMedium());
+	});
+
+	it('Als gebruiker zie ik het onderscheid tussen een collapsed-small data-table en een zonder', async() => {
+		const datatableWithCollapsedSmall = await vlDataTablePage.getDataTableCollapsedSmall();
+		await assert.eventually.isTrue(datatableWithCollapsedSmall.isCollapsedSmall());
+		const datatableWithoutCollapsedSmall = await vlDataTablePage.getDataTableWithHoverLines();
+		await assert.eventually.isFalse(datatableWithoutCollapsedSmall.isCollapsedSmall());
+	});
+	
+	it('Als gebruiker zie ik het onderscheid tussen een collapsed-extra-small data-table en een zonder', async() => {
+		const datatableWithCollapsedExtraSmall = await vlDataTablePage.getDataTableCollapsedExtraSmall();
+		await assert.eventually.isTrue(datatableWithCollapsedExtraSmall.isCollapsedExtraSmall());
+		const datatableWithoutCollapsedExtraSmall = await vlDataTablePage.getDataTableWithHoverLines();
+		await assert.eventually.isFalse(datatableWithoutCollapsedExtraSmall.isCollapsedExtraSmall());
+	});
+	
+
 });
 

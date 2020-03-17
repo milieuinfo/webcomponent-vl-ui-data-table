@@ -27,7 +27,7 @@
 
     test('krijgt de juiste class wanneer de data-table een attribuut bevat', () => {
       const dataTable = fixture('vl-data-table-fixture');
-      ['hover', 'matrix', 'lined', 'zebra'].forEach((attribuut) => {
+      ['hover', 'matrix', 'lined', 'zebra', 'collapsed-m', 'collapsed-s', 'collapsed-xs'].forEach((attribuut) => {
         assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
         dataTable.setAttribute(attribuut, '');
         assert.isTrue(dataTable.classList.contains('vl-data-table--' + attribuut));
@@ -35,6 +35,7 @@
         assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
       });
     });
+
   });
 </script>
 </body>
