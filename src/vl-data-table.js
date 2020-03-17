@@ -11,6 +11,9 @@ import { NativeVlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.j
  * @property {boolean} matrix - Attribuut wordt gebruikt om data in 2 dimensies te tonen. Zowel de rijen als de kolommen krijgen een titel. Deze titels worden gescheiden door een dikke lijn.
  * @property {boolean} lined - Variant met een lijn tussen elke rij en kolom.
  * @property {boolean} zebra - Variant waarin de rijen afwisslend een andere achtergrondkleur krijgen. Dit maakt de tabel makkelijker leesbaar.
+ * @property {boolean} collaped-m - Vanaf een medium schermgrootte zullen de cellen van elke rij onder elkaar ipv naast elkaar getoond worden.
+ * @property {boolean} collaped-s - Vanaf een small schermgrootte zullen de cellen van elke rij onder elkaar ipv naast elkaar getoond worden.
+ * @property {boolean} collaped-xs - Vanaf een extra small schermgrootte zullen de cellen van elke rij onder elkaar ipv naast elkaar getoond worden.
  * 
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-data-table/issues|Issues}
@@ -22,7 +25,7 @@ export class VlDataTable extends NativeVlElement(HTMLTableElement) {
   }
 
   static get _observedClassAttributes() {
-    return ['hover', 'matrix', 'lined', 'zebra'];
+    return ['hover', 'matrix', 'lined', 'zebra', 'collapsed-m', 'collapsed-s', 'collapsed-xs'];
   }
 
   connectedCallback() {

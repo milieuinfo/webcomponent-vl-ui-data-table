@@ -31,6 +31,18 @@ class VlDataTable extends VlElement {
     async isZebra() {
         return this.hasAttribute('zebra');
     }
+
+    async isCollapsedMedium() {
+    	return this.hasAttribute('collapsed-m');
+    }
+
+    async isCollapsedSmall() {
+    	return this.hasAttribute('collapsed-s');
+    }
+
+    async isCollapsedExtraSmall() {
+    	return this.hasAttribute('collapsed-xs');
+    }
 }
 
 class VlDataTableHeader extends VlElement {
