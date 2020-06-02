@@ -18,8 +18,6 @@
 
 <script>
   suite('<vl-data-table>', () => {
-    const should = chai.should();
-
     test('heeft de vl-data-table class', () => {
       const dataTable = fixture('vl-data-table-fixture');
       assert.isTrue(dataTable.classList.contains('vl-data-table'));
@@ -35,7 +33,6 @@
         assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
       });
     });
-
   });
 </script>
 </body>
