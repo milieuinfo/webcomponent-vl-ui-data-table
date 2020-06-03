@@ -44,10 +44,10 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core"
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core"
   },
   "peerDependencies": {
-    "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core"
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core"
   },
   "devDependencies": {
     "@govflanders/vl-ui-core": "3.9.1",
