@@ -7,7 +7,6 @@ import {define} from '/node_modules/vl-ui-core/dist/vl-core.js';
  * @classdesc Gebruik een data table om op een gestructureerde manier (grote hoeveelheden) relationele data te tonen.
  *
  * @extends HTMLTableElement
- * @mixin nativeVlElement
  *
  * @property {boolean} hover - Attribuut wordt gebruikt om een rij te highlighten waneer de gebruiker erover hovert met muiscursor.
  * @property {boolean} matrix - Attribuut wordt gebruikt om data in 2 dimensies te tonen. Zowel de rijen als de kolommen krijgen een titel. Deze titels worden gescheiden door een dikke lijn.
