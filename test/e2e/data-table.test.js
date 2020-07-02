@@ -15,7 +15,7 @@ describe('vl-data-table', async () => {
 
   it('Als gebruiker kan ik de headers van een datatable zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
-    const header = await datatable.getDataTableHeader();
+    const header = await datatable.getHeader();
     const headerRows = await header.getRows();
 
     await assert.eventually.lengthOf(headerRows[0].getCells(), 4);
@@ -24,11 +24,12 @@ describe('vl-data-table', async () => {
     await assert.eventually.equal(headerCells[1].getText(), 'Entry Header 2');
     await assert.eventually.equal(headerCells[2].getText(), 'Entry Header 3');
     await assert.eventually.equal(headerCells[3].getText(), 'Entry Header 4');
+    await headerRows[0].assertValues(['Entry Header 1', 'Entry Header 2', 'Entry Header 3', 'Entry Header 4']);
   });
 
   it('De gebruiker kan de columns van een table zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
-    const body = await datatable.getDataTableBody();
+    const body = await datatable.getBody();
 
     const rows = await body.getRows();
 
@@ -83,7 +84,7 @@ describe('vl-data-table', async () => {
 
   it('Als gebruiker van een datatable zie ik waar er cellen uitgespreid zijn over meerdere rijen of kolommen', async () => {
     const datatable = await vlDataTablePage.getDataTableMatrixJoinedRowTitles();
-    const body = await datatable.getDataTableBody();
+    const body = await datatable.getBody();
     const rows = await body.getRows();
     const cellsRow0 = await rows[0].getCells();
     await assert.eventually.equal(cellsRow0[0].getRowSpan(), 3);

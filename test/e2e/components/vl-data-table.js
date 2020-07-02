@@ -1,5 +1,5 @@
 const {VlElement} = require('vl-ui-core').Test;
-const {By} = require('vl-ui-core').Test.Setup;
+const {assert, By} = require('vl-ui-core').Test.Setup;
 
 class VlDataTable extends VlElement {
   async getCaption() {
@@ -7,11 +7,11 @@ class VlDataTable extends VlElement {
     return caption.getText();
   }
 
-  async getDataTableHeader() {
+  async getHeader() {
     return new VlDataTableHeader(this.driver, await this.findElement(By.css('thead')));
   }
 
-  async getDataTableBody() {
+  async getBody() {
     return new VlDataTableBody(this.driver, await this.findElement(By.css('tbody')));
   }
 
@@ -59,26 +59,30 @@ class VlDataTableBody extends VlElement {
 }
 
 class VlDataTableRow extends VlElement {
-  async _getCells() {
-    return this.findElements(By.css('tr>*'));
+  async getCells() {
+    const cells = await this.findElements(By.css('tr>*'));
+    return Promise.all(cells.map((cell) => new VlDataTableCell(this.driver, cell)));
   }
 
-  async getCells() {
-    const cells = await this._getCells();
-    return Promise.all(cells.map((cell) => new VlDataTableCell(this.driver, cell)));
+  async assertValues(values) {
+    const cells = await this.getCells();
+    assert.lengthOf(cells, values.length);
+    for (let i = 0; i < cells.length; i++) {
+      await cells[i].assertValue(values[i]);
+    }
   }
 }
 
 class VlDataTableCell extends VlElement {
-  getRowSpan() {
+  async getRowSpan() {
     return this.getAttribute('rowspan');
   }
 
-  getColSpan() {
+  async getColSpan() {
     return this.getAttribute('colspan');
   }
 
-  getScope() {
+  async getScope() {
     return this.getAttribute('scope');
   }
 
@@ -90,6 +94,10 @@ class VlDataTableCell extends VlElement {
   async isTh() {
     const tag = await this.getTagName();
     return tag == 'th';
+  }
+
+  async assertValue(value) {
+    await assert.eventually.equal(this.getText(), value);
   }
 }
 
