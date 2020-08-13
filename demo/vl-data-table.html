@@ -4,13 +4,15 @@
 <head>
     <title>vl-data-table voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
+    <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
 
     <script type="module" src="/src/vl-data-table.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
 </head>
 
-<body>
+<body is="vl-body">
     <vl-demo-page data-vl-webcomponent="vl-data-table" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
         <vl-demo data-vl-title="Data table Hover">
             <table is="vl-data-table" data-vl-hover id="data-table-hover">
