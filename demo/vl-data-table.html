@@ -4,17 +4,18 @@
 <head>
     <title>vl-data-table voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
+    <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
 
     <script type="module" src="/src/vl-data-table.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
 </head>
 
-<body>
-    <vl-demo-page data-vl-webcomponent="vl-data-table"
-        data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
+<body is="vl-body">
+    <vl-demo-page data-vl-webcomponent="vl-data-table" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
         <vl-demo data-vl-title="Data table Hover">
-            <table is="vl-data-table" hover id="data-table-hover">
+            <table is="vl-data-table" data-vl-hover id="data-table-hover">
                 <caption>Data table Hover</caption>
                 <thead>
                     <tr>
@@ -47,7 +48,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table matrix - column titles">
-            <table is="vl-data-table" matrix id='data-table-matrix-column-titles'>
+            <table is="vl-data-table" data-vl-matrix id='data-table-matrix-column-titles'>
                 <caption>Data table Matrix - Column titles</caption>
                 <thead>
                     <tr>
@@ -80,7 +81,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table matrix - joined row titles">
-            <table is="vl-data-table" matrix id='data-table-matrix-row-titles'>
+            <table is="vl-data-table" data-vl-matrix id='data-table-matrix-row-titles'>
                 <caption>Data table Matrix - Joined row titles</caption>
                 <thead>
                     <tr>
@@ -126,7 +127,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table lined">
-            <table is="vl-data-table" lined id="data-table-lined">
+            <table is="vl-data-table" data-vl-lined id="data-table-lined">
                 <caption>Data table Lined</caption>
                 <thead>
                     <tr>
@@ -159,7 +160,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table lined - joined row titles">
-            <table is="vl-data-table" lined id="data-table-lined-row-titles">
+            <table is="vl-data-table" data-vl-lined id="data-table-lined-row-titles">
                 <caption>Data table Lined - Joined row titles</caption>
                 <thead>
                     <tr>
@@ -205,7 +206,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table zebra">
-            <table is="vl-data-table" zebra id="data-table-zebra">
+            <table is="vl-data-table" data-vl-zebra id="data-table-zebra">
                 <caption>Data table Zebra</caption>
                 <thead>
                     <tr>
@@ -238,7 +239,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table collapsed medium">
-            <table is="vl-data-table" collapsed-m id='data-table-collapsed-medium'>
+            <table is="vl-data-table" data-vl-collapsed-m id='data-table-collapsed-medium'>
                 <thead>
                     <tr>
                         <th>Entry Header 1</th>
@@ -265,7 +266,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table collapsed small">
-            <table is="vl-data-table" collapsed-s id='data-table-collapsed-small'>
+            <table is="vl-data-table" data-vl-collapsed-s id='data-table-collapsed-small'>
                 <thead>
                     <tr>
                         <th>Entry Header 1</th>
@@ -292,7 +293,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Data table collapsed extra small">
-            <table is="vl-data-table" collapsed-xs id='data-table-collapsed-extra-small'>
+            <table is="vl-data-table" data-vl-collapsed-xs id='data-table-collapsed-extra-small'>
                 <thead>
                     <tr>
                         <th>Entry Header 1</th>
