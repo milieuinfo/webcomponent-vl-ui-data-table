@@ -5,7 +5,7 @@ describe('vl-data-table', async () => {
   let vlDataTablePage;
 
   before(() => {
-    vlDataTablePage = new VlDataTablePage(getDriver);
+    vlDataTablePage = new VlDataTablePage(getDriver());
     return vlDataTablePage.load();
   });
 
