@@ -1,19 +1,20 @@
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlDataTablePage = require('./pages/vl-data-table.page');
 
 describe('vl-data-table', async () => {
-  const vlDataTablePage = new VlDataTablePage(driver);
+  let vlDataTablePage;
 
   before(() => {
+    vlDataTablePage = new VlDataTablePage(getDriver);
     return vlDataTablePage.load();
   });
 
-  it('Als gebruiker kan ik de caption van een datatable zien', async () => {
+  it('als gebruiker kan ik de caption van een datatable zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.equal(datatable.getCaption(), 'Data table Hover');
   });
 
-  it('Als gebruiker kan ik de headers van een datatable zien', async () => {
+  it('als gebruiker kan ik de headers van een datatable zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
     const header = await datatable.getHeader();
     const headerRows = await header.getRows();
@@ -27,7 +28,7 @@ describe('vl-data-table', async () => {
     await headerRows[0].assertValues(['Entry Header 1', 'Entry Header 2', 'Entry Header 3', 'Entry Header 4']);
   });
 
-  it('De gebruiker kan de columns van een table zien', async () => {
+  it('als gebruiker kan ik de columns van een table zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
     const body = await datatable.getBody();
 
@@ -54,35 +55,35 @@ describe('vl-data-table', async () => {
     await assert.eventually.equal(cellsRow2[3].getText(), 'Entry line 4');
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een data-table met hover en zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een data-table met hover en zonder', async () => {
     const datatableWithHover = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isTrue(datatableWithHover.isHover());
     const datatableWithoutHover = await vlDataTablePage.getDataTableMatrix();
     await assert.eventually.isFalse(datatableWithoutHover.isHover());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een data-table met matrix stijl en zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een data-table met matrix stijl en zonder', async () => {
     const datatableWithoutMatrix = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isFalse(datatableWithoutMatrix.isMatrix());
     const datatableWithMatrix = await vlDataTablePage.getDataTableMatrix();
     await assert.eventually.isTrue(datatableWithMatrix.isMatrix());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een data-table met lined stijl en zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een data-table met lined stijl en zonder', async () => {
     const datatableWithLined = await vlDataTablePage.getDataTableLined();
     await assert.eventually.isTrue(datatableWithLined.isLined());
     const datatableWithoutLined = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isFalse(datatableWithoutLined.isLined());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een data-table met zebra stijl en zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een data-table met zebra stijl en zonder', async () => {
     const datatableWithZebra = await vlDataTablePage.getDataTableZebra();
     await assert.eventually.isTrue(datatableWithZebra.isZebra());
     const datatableWithoutZebra = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isFalse(datatableWithoutZebra.isZebra());
   });
 
-  it('Als gebruiker van een datatable zie ik waar er cellen uitgespreid zijn over meerdere rijen of kolommen', async () => {
+  it('als gebruiker van een datatable zie ik waar er cellen uitgespreid zijn over meerdere rijen of kolommen', async () => {
     const datatable = await vlDataTablePage.getDataTableMatrixJoinedRowTitles();
     const body = await datatable.getBody();
     const rows = await body.getRows();
@@ -98,21 +99,21 @@ describe('vl-data-table', async () => {
     await assert.eventually.isTrue(cellsRow1[1].isTd());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een collapsed-medium data-table en een zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een collapsed-medium data-table en een zonder', async () => {
     const datatableWithCollapsedMedium = await vlDataTablePage.getDataTableCollapsedMedium();
     await assert.eventually.isTrue(datatableWithCollapsedMedium.isCollapsedMedium());
     const datatableWithoutCollapsedMedium = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isFalse(datatableWithoutCollapsedMedium.isCollapsedMedium());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een collapsed-small data-table en een zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een collapsed-small data-table en een zonder', async () => {
     const datatableWithCollapsedSmall = await vlDataTablePage.getDataTableCollapsedSmall();
     await assert.eventually.isTrue(datatableWithCollapsedSmall.isCollapsedSmall());
     const datatableWithoutCollapsedSmall = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.isFalse(datatableWithoutCollapsedSmall.isCollapsedSmall());
   });
 
-  it('Als gebruiker zie ik het onderscheid tussen een collapsed-extra-small data-table en een zonder', async () => {
+  it('als gebruiker zie ik het onderscheid tussen een collapsed-extra-small data-table en een zonder', async () => {
     const datatableWithCollapsedExtraSmall = await vlDataTablePage.getDataTableCollapsedExtraSmall();
     await assert.eventually.isTrue(datatableWithCollapsedExtraSmall.isCollapsedExtraSmall());
     const datatableWithoutCollapsedExtraSmall = await vlDataTablePage.getDataTableWithHoverLines();
