@@ -5,321 +5,97 @@
     <title>vl-data-table voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
     <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
+    <script type="module" src="/node_modules/vl-ui-grid/dist/vl-grid.js"></script>
+    <script type="module" src="/node_modules/vl-ui-typography/dist/vl-typography.js"></script>
+    <script type="module" src="/node_modules/vl-ui-proza-message/dist/vl-proza-message.js"></script>
+    <script type="module" src="/node_modules/vl-ui-infoblock/dist/vl-infoblock.min.js"></script>
+    <script type="module" src="/node_modules/vl-ui-description-data/dist/vl-description-data.min.js"></script>
+    <script src="/node_modules/fetch-mock/es5/client-bundle.js"></script>
 
     <script type="module" src="/src/vl-data-table.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/src/style.css" />
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-demo/dist/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-demo/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-grid/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-typography/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-description-data/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-infoblock/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-proza-message/dist/style.css"/>
 </head>
-
 <body is="vl-body">
-    <vl-demo-page data-vl-webcomponent="vl-data-table" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
-        <vl-demo data-vl-title="Data table Hover">
-            <table is="vl-data-table" data-vl-hover id="data-table-hover">
-                <caption>Data table Hover</caption>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                        <td>Entry line 3</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
+<vl-proza-message-preloader id="preloader-1" data-vl-domain="foo"></vl-proza-message-preloader>
+<vl-demo-page data-vl-webcomponent="vl-data-table"
+              data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
+    <vl-demo data-vl-title="Data table Hover">
+        <vl-infoblock icon="places-factory">
+            <div id="content" is="vl-grid" is-stacked="" class="vl-grid--is-stacked vl-grid">
+                <div is="vl-column" size="12" class="nieuw vl-col--12-12" id="emissiepunten">
+                    <table is="vl-data-table" zebra="" class="vl-data-table--zebra vl-data-table">
+                        <thead>
+                        <tr>
+                            <th>
+                                is-rapport.ventilatieopening.coordinaten
+                            </th>
+                            <th>Diameter</th>
+                            <th>Debiet</th>
+                            <th>Hoogte</th>
+                            <th>Temperatuur</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                    is-rapport.ventilatieopening.coordinaten.x 161285,56
+                                    is-rapport.ventilatieopening.coordinaten.y 229117,56
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-        <vl-demo data-vl-title="Data table matrix - column titles">
-            <table is="vl-data-table" data-vl-matrix id='data-table-matrix-column-titles'>
-                <caption>Data table Matrix - Column titles</caption>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                        <td>Entry line 3</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
 
-        <vl-demo data-vl-title="Data table matrix - joined row titles">
-            <table is="vl-data-table" data-vl-matrix id='data-table-matrix-row-titles'>
-                <caption>Data table Matrix - Joined row titles</caption>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th rowspan="3" scope="rowgroup">Entry line 1</th>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3" scope="rowgroup">Entry line 2</th>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table lined">
-            <table is="vl-data-table" data-vl-lined id="data-table-lined">
-                <caption>Data table Lined</caption>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                        <td>Entry line 3</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table lined - joined row titles">
-            <table is="vl-data-table" data-vl-lined id="data-table-lined-row-titles">
-                <caption>Data table Lined - Joined row titles</caption>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th rowspan="3" scope="rowgroup">Entry line 1</th>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3" scope="rowgroup">Entry line 2</th>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table zebra">
-            <table is="vl-data-table" data-vl-zebra id="data-table-zebra">
-                <caption>Data table Zebra</caption>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td colspan="2" scope="colgroup">Entry line 2</td>
-                        <td>Entry line 3</td>
-                    </tr>
-                    <tr>
-                        <td>Entry line 1</td>
-                        <td>Entry line 2</td>
-                        <td>Entry line 3</td>
-                        <td>Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table collapsed medium">
-            <table is="vl-data-table" data-vl-collapsed-m id='data-table-collapsed-medium'>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table collapsed small">
-            <table is="vl-data-table" data-vl-collapsed-s id='data-table-collapsed-small'>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-
-        <vl-demo data-vl-title="Data table collapsed extra small">
-            <table is="vl-data-table" data-vl-collapsed-xs id='data-table-collapsed-extra-small'>
-                <thead>
-                    <tr>
-                        <th>Entry Header 1</th>
-                        <th>Entry Header 2</th>
-                        <th>Entry Header 3</th>
-                        <th>Entry Header 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Entry Header 1">Entry line 1</td>
-                        <td data-title="Entry Header 2">Entry line 2</td>
-                        <td data-title="Entry Header 3">Entry line 3</td>
-                        <td data-title="Entry Header 4">Entry line 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </vl-demo>
-    </vl-demo-page>
+                <div is="vl-column" size="12" class="vl-col--12-12" id="emissies">
+                    foobar
+                </div>
+            </div>
+        </vl-infoblock>
+    </vl-demo>
+</vl-demo-page>
 </body>
 
 </html>
