@@ -6,10 +6,7 @@
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
     <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
     <script type="module" src="/node_modules/vl-ui-grid/dist/vl-grid.js"></script>
-    <script type="module" src="/node_modules/vl-ui-typography/dist/vl-typography.js"></script>
-    <script type="module" src="/node_modules/vl-ui-proza-message/dist/vl-proza-message.js"></script>
     <script type="module" src="/node_modules/vl-ui-infoblock/dist/vl-infoblock.min.js"></script>
-    <script type="module" src="/node_modules/vl-ui-description-data/dist/vl-description-data.min.js"></script>
     <script src="/node_modules/fetch-mock/es5/client-bundle.js"></script>
 
     <script type="module" src="/src/vl-data-table.js"></script>
@@ -18,25 +15,19 @@
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-demo/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-grid/dist/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-typography/dist/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-description-data/dist/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-infoblock/dist/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-proza-message/dist/style.css"/>
 </head>
 <body is="vl-body">
-<vl-proza-message-preloader id="preloader-1" data-vl-domain="foo"></vl-proza-message-preloader>
 <vl-demo-page data-vl-webcomponent="vl-data-table"
               data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-data-table">
     <vl-demo data-vl-title="Data table Hover">
-        <vl-infoblock icon="places-factory">
-            <div id="content" is="vl-grid" is-stacked="" class="vl-grid--is-stacked vl-grid">
-                <div is="vl-column" size="12" class="nieuw vl-col--12-12" id="emissiepunten">
-                    <table is="vl-data-table" zebra="" class="vl-data-table--zebra vl-data-table">
+        <vl-infoblock data-vl-icon="places-factory">
+            <div id="content" is="vl-grid" data-vl-is-stacked>
+                <div is="vl-column" data-vl-size="12">
+                    <table is="vl-data-table" data-vl-zebra>
                         <thead>
                         <tr>
-                            <th>
-                                is-rapport.ventilatieopening.coordinaten
-                            </th>
+                            <th>is-rapport.ventilatieopening.coordinaten</th>
                             <th>Diameter</th>
                             <th>Debiet</th>
                             <th>Hoogte</th>
@@ -61,6 +52,10 @@
                                     is-rapport.ventilatieopening.coordinaten.y 229117,56
                                 </div>
                             </td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
                         </tr>
                         <tr>
                             <td>
@@ -83,13 +78,16 @@
                                     is-rapport.ventilatieopening.coordinaten.y 229117,56
                                 </div>
                             </td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
 
-
-                <div is="vl-column" size="12" class="vl-col--12-12" id="emissies">
+                <div is="vl-column" data-vl-size="12">
                     foobar
                 </div>
             </div>
