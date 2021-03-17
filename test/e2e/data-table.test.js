@@ -9,6 +9,10 @@ describe('vl-data-table', async () => {
     return vlDataTablePage.load();
   });
 
+  it('WCAG', async () => {
+    await assert.eventually.isFalse(vlDataTablePage.hasWcagIssues());
+  });
+
   it('als gebruiker kan ik de caption van een datatable zien', async () => {
     const datatable = await vlDataTablePage.getDataTableWithHoverLines();
     await assert.eventually.equal(datatable.getCaption(), 'Data table Hover');
@@ -94,7 +98,6 @@ describe('vl-data-table', async () => {
     await assert.eventually.isFalse(cellsRow0[0].isTd());
     const cellsRow1 = await rows[1].getCells();
     await assert.eventually.equal(cellsRow1[1].getColSpan(), 2);
-    await assert.eventually.equal(cellsRow1[1].getScope(), 'colgroup');
     await assert.eventually.isFalse(cellsRow1[1].isTh());
     await assert.eventually.isTrue(cellsRow1[1].isTd());
   });

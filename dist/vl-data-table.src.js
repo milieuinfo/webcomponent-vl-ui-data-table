@@ -27,11 +27,42 @@ export class VlDataTable extends nativeVlElement(HTMLTableElement) {
   }
 
   connectedCallback() {
-    this.classList.add('vl-data-table');
+    this._processClass();
+    this._processScopeAttributes();
+    this._observer = this._observeHeaderElements(() => this._processScopeAttributes());
+  }
+
+  disconnectedcallback() {
+    if (this._observer) {
+      this._observer.disconnect();
+    }
+  }
+
+  get _headHeaderElements() {
+    return [...this.querySelectorAll('thead tr th')];
+  }
+
+  get _bodyHeaderElements() {
+    return [...this.querySelectorAll('tbody tr th')];
   }
 
   get _classPrefix() {
     return 'vl-data-table--';
+  }
+
+  _processClass() {
+    this.classList.add('vl-data-table');
+  }
+
+  _processScopeAttributes() {
+    this._headHeaderElements.filter((header) => !header.hasAttribute('scope')).forEach((header) => header.setAttribute('scope', 'col'));
+    this._bodyHeaderElements.filter((header) => !header.hasAttribute('scope')).forEach((header) => header.setAttribute('scope', 'row'));
+  }
+
+  _observeHeaderElements(callback) {
+    const observer = new MutationObserver(callback);
+    observer.observe(this, {childList: true});
+    return observer;
   }
 }
 
