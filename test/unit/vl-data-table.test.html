@@ -12,7 +12,89 @@
 <body>
 <test-fixture id="vl-data-table-fixture">
   <template>
-    <table id="data-table" is="vl-data-table"></table>
+    <table is="vl-data-table"></table>
+  </template>
+</test-fixture>
+
+<test-fixture id="vl-data-table-without-scope-fixture">
+  <template>
+    <table is="vl-data-table">
+      <thead>
+        <tr>
+          <th>Entry Header 1</th>
+          <th>Entry Header 2</th>
+          <th>Entry Header 3</th>
+          <th>Entry Header 4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Entry line 1</th>
+          <td>Entry line 1</td>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+        </tr>
+        <tr>
+          <th>Entry line 1</th>
+          <td>Entry line 1</td>
+          <td colspan="2">Entry line 2</td>
+        </tr>
+        <tr>
+          <th>Entry line 1</th>
+          <td>Entry line 1</td>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+</test-fixture>
+
+<test-fixture id="vl-data-table-with-scope-fixture">
+  <template>
+    <table is="vl-data-table" data-vl-matrix>
+      <caption>Data table Matrix - Joined row titles</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="3" scope="rowgroup">Entry line 1</th>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+          <td>Entry line 4</td>
+        </tr>
+        <tr>
+          <td>Entry line 1</td>
+          <td colspan="2">Entry line 2</td>
+        </tr>
+        <tr>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+          <td>Entry line 4</td>
+        </tr>
+        <tr>
+          <th rowspan="3" scope="rowgroup">Entry line 2</th>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+          <td>Entry line 4</td>
+        </tr>
+        <tr>
+          <td>Entry line 1</td>
+          <td colspan="2">Entry line 2</td>
+        </tr>
+        <tr>
+          <td>Entry line 2</td>
+          <td>Entry line 3</td>
+          <td>Entry line 4</td>
+        </tr>
+      </tbody>
+    </table>
   </template>
 </test-fixture>
 
@@ -31,6 +113,42 @@
         assert.isTrue(dataTable.classList.contains('vl-data-table--' + attribuut));
         dataTable.removeAttribute(attribuut);
         assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
+      });
+    });
+
+    test('de scope attributen zullen automatisch toegevoegd worden aan de header elementen die geen scope attribuut hebben', () => {
+      const dataTable = fixture('vl-data-table-without-scope-fixture');
+      dataTable._headHeaderElements.forEach((header) => assert.equal(header.getAttribute('scope'), 'col'));
+      dataTable._bodyHeaderElements.forEach((header) => assert.equal(header.getAttribute('scope'), 'row'));
+    });
+
+    test('de scope attributen zullen niet overschreven worden bij header elementen', () => {
+      const dataTable = fixture('vl-data-table-with-scope-fixture');
+      dataTable._bodyHeaderElements.forEach((header) => assert.equal(header.getAttribute('scope'), 'rowgroup'));
+    });
+
+    test('de scope attributen zullen automatisch toegevoegd worden aan de header elementen die dynamisch toegevoegd worden en geen scope attribuut hebben', (done) => {
+      const dataTable = fixture('vl-data-table-fixture');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+      const tr1 = document.createElement('tr');
+      const tr2 = document.createElement('tr');
+      const th1 = document.createElement('th');
+      const th2 = document.createElement('th');
+  
+      tr1.appendChild(th1);
+      tr2.appendChild(th2);
+  
+      thead.appendChild(tr1);
+      tbody.appendChild(tr2);
+
+      dataTable.appendChild(thead);
+      dataTable.appendChild(tbody);
+
+      setTimeout(() => {
+        dataTable._headHeaderElements.forEach((header) => assert.equal(header.getAttribute('scope'), 'col'));
+        dataTable._bodyHeaderElements.forEach((header) => assert.equal(header.getAttribute('scope'), 'row'));
+        done();
       });
     });
   });
